@@ -28,6 +28,11 @@ export class InicioPage implements OnInit {
       icon: 'radio-button-on',
       name: 'Botones y router',
       redirectTo: '/botones'
+    },
+    {
+      icon: 'card',
+      name: 'Cards',
+      redirectTo: '/card'
     }
   ];
 
