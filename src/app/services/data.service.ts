@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { Componente } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class DataService {
       .pipe(
           tap( console.log)
       );
+  }
+
+  getMenuOpts() {
+    return this.http.get<Componente[]>('/assets/data/menu.json');
   }
 }
