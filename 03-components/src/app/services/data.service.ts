@@ -27,4 +27,8 @@ export class DataService {
         tap( console.log)
     );
   }
+
+  getHeroes() {
+    return this.http.get('/assets/data/superheroes.json');
+  }
 }
