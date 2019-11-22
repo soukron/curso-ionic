@@ -1,7 +1,7 @@
-<ion-card color="dark">
+<ion-card color="dark" (click)="abrirNoticia()">
   <ion-header>
     <ion-card-subtitle>
-        <span class="text-primary">{{ indice }}. </span>
+        <span class="text-primary">{{ indice +1 }}. </span>
         <span class="noticia-source-name">{{ noticia.source.name }}</span>
       </ion-card-subtitle>
     <ion-card-title>{{ noticia.title }}</ion-card-title>
@@ -11,7 +11,7 @@
 
   <ion-card-content>
     <p>
-      {{ noticia.content }}
+      {{ noticia.description }}
     </p>
   </ion-card-content>
 </ion-card>
