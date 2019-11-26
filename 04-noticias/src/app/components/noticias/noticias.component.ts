@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, enableProdMode } from '@angular/core';
 import { Article } from '../../interfaces/interfaces';
 
 @Component({
@@ -9,7 +9,8 @@ import { Article } from '../../interfaces/interfaces';
 export class NoticiasComponent implements OnInit {
 
   @Input() noticias: Article[] = [];
-  
+  @Input() enFavoritos = false;
+
   constructor() { }
 
   ngOnInit() {}
