@@ -13,7 +13,7 @@ export class MoviesService {
 
   constructor( private http: HttpClient ) { }
 
-  private ejecutarQuery<T>( query: string ){
+  private ejecutarQuery<T>( query: string ) {
     query = URL + query;
     query += `&api_key=${ apiKey }&language=es&include_image_language=es`;
 
@@ -21,7 +21,11 @@ export class MoviesService {
   }
 
   getFeature() {
-    // tslint:disable-next-line: max-line-length
     return this.ejecutarQuery<RespuestaMDB>('/discover/movie?primary_release_date.gte=2019-01-01&primary_release_date.lte=2019-01-31');
+  }
+
+  getPopulares() {
+    const query = '/discover/movie?sort_by=popularity.desc';
+    return this.ejecutarQuery<RespuestaMDB>(query);
   }
 }
