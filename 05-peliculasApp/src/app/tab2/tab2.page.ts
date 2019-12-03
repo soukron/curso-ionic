@@ -11,6 +11,7 @@ export class Tab2Page {
 
   textoBuscar = '';
   sugerencias: Pelicula[] = [];
+  peliculas: Pelicula[] = [];
 
   constructor(private moviesService: MoviesService) {
     this.moviesService.getPopulares()
@@ -20,7 +21,11 @@ export class Tab2Page {
   }
 
   buscar( event ) {
-    const valor = event.detail.value;
-    console.log(event);
+    const titulo = event.detail.value;
+    this.moviesService.searchPelicula(titulo)
+      .subscribe( resp => {
+        console.log(resp);
+        this.peliculas = resp.results;
+      });
   }
 }
