@@ -11,7 +11,7 @@ import { DataLocalService } from '../../services/data-local.service';
 })
 export class DetalleComponent implements OnInit {
 
-  @Input() id;
+  @Input() id: number;
 
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];

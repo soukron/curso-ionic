@@ -67,7 +67,11 @@ interface Productioncompany {
   origin_country: string;
 }
 
-interface Genre {
+export interface RespuestaGenres {
+  genres: Genre[];
+}
+
+export interface Genre {
   id: number;
   name: string;
 }

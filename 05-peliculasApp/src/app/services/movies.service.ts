@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RespuestaMDB, PeliculaDetalle, PeliculaReparto } from '../interfaces/interfaces';
+import { RespuestaMDB, PeliculaDetalle, PeliculaReparto, RespuestaGenres } from '../interfaces/interfaces';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
 
 const URL = environment.url;
 const apiKey = environment.apiKey;
@@ -49,5 +50,13 @@ export class MoviesService {
 
   searchPelicula( titulo: string ) {
     return this.ejecutarQuery<RespuestaMDB>(`/search/movie/?query=${ titulo }`);
+  }
+
+  getGeneros() {
+    return this.ejecutarQuery<RespuestaGenres>(`/genre/movie/list?foo=bar`)
+      .pipe(
+        map(data => data.genres)
+      )
+      .toPromise();
   }
 }
