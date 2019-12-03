@@ -36,7 +36,6 @@ export class Tab2Page {
     this.buscando = true;
     this.moviesService.searchPelicula(titulo)
       .subscribe( resp => {
-        console.log(resp);
         this.peliculas = resp.results;
         this.buscando = false;
       });

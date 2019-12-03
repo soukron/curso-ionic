@@ -24,7 +24,6 @@ export class Tab1Page implements OnInit {
   }
 
   cargarMas() {
-    console.log('Cargando mas');
     this.getPopulares();
   }
 

@@ -15,8 +15,7 @@ export class SlideshowParesComponent implements OnInit {
 
   slideOpts = {
     slidesPerView: 2.7,
-    freemode: true,
-    spaceBetween: -10
+    freemode: true
   };
 
   constructor(private modalCtrl: ModalController) {}
@@ -24,7 +23,6 @@ export class SlideshowParesComponent implements OnInit {
   ngOnInit() {}
 
   onClick() {
-    console.log('Cargar mas');
     this.cargarMas.emit();
   }
 
