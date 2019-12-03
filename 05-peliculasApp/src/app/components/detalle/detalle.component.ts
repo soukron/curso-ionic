@@ -11,7 +11,7 @@ import { DataLocalService } from '../../services/data-local.service';
 })
 export class DetalleComponent implements OnInit {
 
-  @Input() id: number;
+  @Input() id: any;
 
   pelicula: PeliculaDetalle = {};
   actores: Cast[] = [];
@@ -34,7 +34,7 @@ export class DetalleComponent implements OnInit {
     this.dataLocal.existePelicula( this.id )
       .then( resp => {
         this.existe = resp;
-      })
+      });
 
     this.moviesService.getPeliculaDetalle( this.id )
       .subscribe( resp => {
@@ -54,7 +54,6 @@ export class DetalleComponent implements OnInit {
   }
 
   async favorito() {
-    console.log('favorito');
     this.existe = this.dataLocal.guardarPelicula(this.pelicula);
   }
 }
